@@ -1,25 +1,32 @@
 // TODO: Include packages needed for this application
-let generateMarkdown = require('./utils/generateMarkdown')
-let inquirer = require('inquirer')
+const generateMarkdown = require('./utils/generateMarkdown.js')
+const inquirer = require('inquirer')
+const fs = require('fs');
 
 // TODO: Create an array of questions for user input
 const questions = [
     {
-        message: 'What is the title of your project?',
+        type: 'input',
         name: 'title',
+        message: 'What is the title of your project?',
     },
     {
-        message: 'Please describe your project.',
+        type: 'input',
         name: 'description',
+        message: 'Please describe your project.',
     }, 
     {   
-        message: 'What is your license?',
+        type: 'input',
         name: 'license',
+        message: 'What is your license?',
     },
-];
+]
+
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+
+}
 
 // TODO: Create a function to initialize app
 function init() {
@@ -27,22 +34,15 @@ function init() {
 
     // display questions
     // collect input
-    inquirer
-        .prompt(questions)
-        .then((answers) => {
-            console.log(answers)
-        })
-        .catch((error) => {
-            if (error.isTtyError) {
-                console.log('ttyerror', error)
-            } else {
-                console.log('other error', error)
-            }
-        });
+    inquirer.prompt(questions)
+        .then((answers) => fs.writeFileSync('README.md', generateMarkdown(answers)))
+        .then(() => console.log('README.md created successfully!'))
+        .catch((err) => console.error(err));
+
+
     // build data object
     // create/print to file (writetoFile)
-    writeToFile('README.md', data)
-    console.log('all done :) you welcome')
+    // writeToFile('README.md', data)
 }
 
 // Function call to initialize app
