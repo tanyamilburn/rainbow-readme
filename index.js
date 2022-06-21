@@ -13,12 +13,37 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please describe your project.',
+        message: 'Briefly describe your project.',
     }, 
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'Describe how to install this project',
+    },
+    {
+        type: 'input',
+        name: 'screenshot',
+        message: 'Drag a screenshot of your application into the images folder. What is the file name?',
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: 'What are the guidelines for contributing to this project?',
+    },
     {   
         type: 'input',
         name: 'license',
-        message: 'What is your license?',
+        message: 'Do you have an MIT or Apache license? Otherwise respond with NONE.',
+    },
+    {   
+        type: 'input',
+        name: 'username',
+        message: 'What is your github username',
+    },
+    {   
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
     },
 ]
 
