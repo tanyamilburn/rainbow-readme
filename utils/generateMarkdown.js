@@ -43,7 +43,7 @@ function generateMarkdown({title, description, license, username, email, install
     
 ${badge ? '### License:' : ''}
  ${badge} 
-### Contribution Guidelines
+### Contribution 
   * ${contribution}
 ### Tests
 ### Questions
